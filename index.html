@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="root.css" />
+    <title>Design System Webpage</title>
+  </head>
+  <body>
+    <div class="container">
+      <input
+        type="text"
+        class="input-large"
+        placeholder="Type something..."
+        id="inputField"
+      />
+      <button class="button-primary" onclick="handleSubmit()">Submit</button>
+    </div>
+
+    <script>
+      function handleSubmit() {
+        const button = document.querySelector(".button-primary");
+        button.disabled = true;
+        button.innerText = "Loading...";
+
+        setTimeout(() => {
+          button.disabled = false;
+          button.innerText = "Submit";
+        }, 2000);
+      }
+
+      const inputField = document.getElementById("inputField");
+      inputField.addEventListener("input", () => {
+        inputField.style.backgroundColor = "var(--focus-background)";
+      });
+    </script>
+  </body>
+</html>
